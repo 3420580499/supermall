@@ -1,0 +1,99 @@
+@import "./normalize.css";
+/* :root -> 获取根元素html */
+:root {
+  /*定义变量的方式*/
+  --color-text: #666;
+  --color-high-text: #d44bc9;
+  --color-tint: #ff8e96;
+  --color-background: #fff;
+  --font-size: 14px;
+  --line-height: 1.5;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica Neue",Helvetica, "PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  /*使用上面定义的变量*/
+  background: var(--color-background);
+  color: var(--color-text);
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.clear-fix::after {
+  clear: both;
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.clear-fix {
+  zoom: 1;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+ul {
+  list-style: none;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+/* toast过渡 */
+.toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  /* border: 1px solid #666; */
+  padding: 20px;
+  z-index: 99;
+  border-radius: 12px;
+  color: #fff;
+  background-color: rgba(202, 92, 110, 1);
+
+  animation: 2s toastAnimate;
+}
+
+@keyframes toastAnimate {
+  0% {
+    opacity: 0.5;
+    /* display: none; */
+  }
+  50% {
+    opacity: 1;
+    /* display: block; */
+  }
+  100% {
+    opacity: 0.5;
+    /* display: none; */
+  }
+}
