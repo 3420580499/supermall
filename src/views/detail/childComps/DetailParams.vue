@@ -3,7 +3,7 @@
     <table v-for="(table, index) in paramInfo.sizes"
            class="info-size"
            :key="index">
-      <tr v-for="(tr, indey) in table" :key="indey">
+      <tr v-for="(tr, indey) in table" :key="indey" class="ImportantTr">
         <td v-for="(td, indez) in tr" :key="indez">{{td}}</td>
       </tr>
     </table>
@@ -49,9 +49,13 @@
   .param-info table tr td {
     border-bottom: 1px solid rgba(100,100,100,.1);
   }
+  /*与下面的宽度一致*/
+  .ImportantTr :nth-child(1) {
+    width: 30%;
+  }
   .info-param-key {
     /*  当value数据量比较大的时候 会挤到key，所以给一个固定的宽度*/
-    width: 95px;
+    width: 30%;
   }
   .info-param {
     border-top: 1px solid rgba(0,0,0,.1);

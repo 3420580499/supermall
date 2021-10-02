@@ -3,7 +3,6 @@
     <goods-list-item v-for="item in goods" :goodsItem="item" />
   </div>
 </template>
-
 <script>
   import GoodsListItem from "./GoodsListItem";
     export default {

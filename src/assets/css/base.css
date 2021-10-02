@@ -69,18 +69,16 @@ ul {
 
 /* toast过渡 */
 .toast {
+  border-radius: 7px;
+  padding:4px 6px;
+  font-size: 14px;
+  color: #fff;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  /* border: 1px solid #666; */
-  padding: 20px;
-  z-index: 99;
-  border-radius: 12px;
-  color: #fff;
-  background-color: rgba(202, 92, 110, 1);
-
-  animation: 2s toastAnimate;
+  background-color: rgba(0,0,0,.65);
+  z-index: 999;
 }
 
 @keyframes toastAnimate {

@@ -30,6 +30,7 @@
 
   import {getHomeMultidata,getHomeGoods} from "../../network/home";
   import debounce from "../../common/Util/debounce";
+  import{publicMaster} from "../../common/Util/mixin";
 
 
   export default {
@@ -54,12 +55,12 @@
           sell:{page:0,list:[]}
         },
         currentType:'pop',
-        isShow:false,
         tabControlOffSet:0,
         isTabControl:false,
         activeY:0
       }
     },
+    mixins:[publicMaster],
     created() {
       console.log('home组件被创建');
       //但组件被创建出来的时候,去请求多个数据
@@ -118,9 +119,6 @@
         this.$refs.tabControl1.currentIndex = index;
         this.$refs.tabControl2.currentIndex = index;
       },
-      btnClick(){
-        this.$refs.scroll.scrollTo(0,0,500)
-      },
       position(position){
         //判断backTop是否显示
         this.isShow = (-position.y) > 1000;
@@ -145,8 +143,10 @@
     },
     //当前页面活跃时
     activated() {
+      this.$refs.scroll.refresh()
       //当回到首页时,我们回到之前浏览的位置
-     this.$refs.scroll.scrollTo(0,this.activeY,0)
+      //但我们点到详情页在返回首页时,可能会出现不能回到原先位置的情况,原因是我们可能在详情页中点了刷新,导致home组件被重新创建
+     this.$refs.scroll.scrollTo(0,this.activeY)
     },
     //当前页面不活跃时
     deactivated() {

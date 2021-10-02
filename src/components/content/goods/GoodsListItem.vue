@@ -1,6 +1,6 @@
 <template>
    <div class="goods-list-item" @click="goToDetail">
-     <img :src="goodsItem.show.img" alt="" @load="imgLoad">
+     <img v-lazy="isImg" alt="" @load="imgLoad">
      <div class="goods-div">
        <p>{{goodsItem.title}}</p>
        <span class="price">{{goodsItem.price}}</span>
@@ -33,6 +33,15 @@
         goToDetail(){
           //console.log('点击了');
           this.$router.push('/detail/'+this.goodsItem.iid)
+        }
+      },
+      computed:{
+        //因为有两处使用了这个组件,但是传过来的数据内部不一样,我们要做判断才能开始渲染
+        isImg(){
+          return this.goodsItem.image || this.goodsItem.show.img
+          //不能用undefined后面再去调用一个东西,所以要写在后面
+          //undefined.img;
+          //return  this.goodsItem.show.img || this.goodsItem.image
         }
       }
     }

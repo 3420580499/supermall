@@ -70,6 +70,7 @@
     line-height: 45px;
     /*  让元素垂直中心对齐*/
     display: flex;
+    /*让侧轴垂直居中*/
     align-items: center;
   }
   .shop-top img {
@@ -77,10 +78,10 @@
     height: 45px;
     border-radius: 50%;
     border: 1px solid rgba(0,0,0,.1);
+    /*vertical-align: middle;*/
   }
   .shop-top .title {
     margin-left: 10px;
-    vertical-align: center;
   }
   .shop-middle {
     margin-top: 15px;
@@ -139,7 +140,7 @@
     background-color: #f2f5f8;
     width: 150px;
     height: 30px;
-    text-align: center;
+    /*text-align: center;*/
     line-height: 30px;
     border-radius: 10px;
   }

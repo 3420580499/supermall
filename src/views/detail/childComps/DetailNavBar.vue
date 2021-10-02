@@ -6,7 +6,7 @@
       </div>
       <div slot="center" class="center">
         <div v-for="(item,index) in title" class="center-four" :class="{colo:index === currentIndex}" @click="changeIndex(index)">
-          <span>{{item}}</span>
+          <span @click="detailBtn(index)">{{item}}</span>
         </div>
       </div>
     </NavBar>
@@ -33,6 +33,10 @@
         },
         changeIndex(index){
           this.currentIndex = index
+        },
+        detailBtn(index){
+          //console.log(index);
+          this.$emit('detailBtn',index)
         }
       }
     }

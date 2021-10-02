@@ -7,6 +7,12 @@ export function getDetail(iid) {
      }
    })
 }
+//推荐内容
+export function getRecommend() {
+  return request({
+    url: '/recommend'
+  })
+}
 //将有用的数据整合成一个对象
 //商品基本信息
 export class Goods {
